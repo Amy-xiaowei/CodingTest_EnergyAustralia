@@ -1,0 +1,27 @@
+.title{
+    text-align:center;
+    color:royalblue;
+}
+
+.recordLabel{
+    font-size: 18px;
+    color:royalblue;
+    text-align:left;
+    font-weight: bold;
+    margin-left: 10px;
+    font-style:italic;
+}
+.bandname{
+    font-size: 16px;
+    color:red;
+    text-align:left;
+    font-weight: bold;
+    margin-left: 50px;
+}
+.festival{
+    font-size: 14px;
+    color:orangered;
+    text-align:left;
+    font-weight: bold;
+    margin-left: 100px;
+}
