@@ -2,9 +2,7 @@
 the coding test from EnergyAustralia
 
 How to use?
-You can access http://ec2-18-221-216-245.us-east-2.compute.amazonaws.com:8080/bandfestival/index , please click the button "clickMe" to display the data. I deployed my bandfestival.war on the Tomcat in one AWS EC2 instance I created.(In case it wouldn't work, please  access
-http://ec2-3-133-59-235.us-east-2.compute.amazonaws.com:8080/bandfestival000/index.)
-
+You can access http://ec2-18-221-216-245.us-east-2.compute.amazonaws.com:8080/bandfestival/index , please click the button "clickMe" to display the data. I deployed my bandfestival.war on the Tomcat in one AWS Linux instance I created.(In case it wouldn't work, please  access http://ec2-3-133-59-235.us-east-2.compute.amazonaws.com:8080/bandfestival000/index.)
 
 I use Tomcat(8.5)+Maven+Spring MVC to implement the coding challenge, I've already export the project to bandfestival.war. Please deploy the bandfestival.war to your Tomcat, or you can import  the project bandfestival to your Eclipse, please use jre1.8. 
 
