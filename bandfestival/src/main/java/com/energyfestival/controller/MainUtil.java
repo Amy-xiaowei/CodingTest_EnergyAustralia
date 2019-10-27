@@ -36,28 +36,30 @@ import static java.util.Map.Entry.*;
 public class MainUtil {
 
 	private static RestTemplate restTemplate = new RestTemplate(getClientHttpRequestFactory());
-	private static final String URL = "http://eacodingtest.digital.energyaustralia.com.au/api/v1/festival";
-
+	private static final String URL = "http://eacodingtest.digital.energyaustralia.com.au/api/v1/festivals";
 	/**
 	 * set for request timeout
 	 * @return
 	 */
+
 	private static ClientHttpRequestFactory getClientHttpRequestFactory() {
-		HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
-		clientHttpRequestFactory.setConnectTimeout(5 * 1000);
-		clientHttpRequestFactory.setReadTimeout(20 * 1000);
-		return clientHttpRequestFactory;
+	    HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
+	    clientHttpRequestFactory.setConnectTimeout(5 * 1000);
+	    
+	    clientHttpRequestFactory.setReadTimeout(20 * 1000);
+	    return clientHttpRequestFactory;
 	}
+
 
 	/**
 	 * display data to (recordLabel,(band,festival))
 	 * @return
 	 */
 	public static List<DisplayVO> getDisplayList() {
+		System.out.println("URL--"+URL);
 		List<DisplayVO> displayList = processData(retriveDataFromServer(URL));
 		return displayList;
 	}
-
 	/**
 	 * sort value list for Map
 	 * @param toSortMap
@@ -90,10 +92,15 @@ public class MainUtil {
 	 */
 	public static String retriveDataFromServer(String url) {
 		String responseStr = null;
+		System.out.println("======url=="+url);
 		try {
-			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+			//ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+			ResponseEntity<String> response = restTemplate.exchange(URL, HttpMethod.GET, null, String.class);
+
+			System.out.println("========"+responseStr);
 			if (response != null) {
 				responseStr = response.getBody();
+				System.out.println("========"+responseStr);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -131,7 +138,6 @@ public class MainUtil {
 			try {
 				value = mapper.readValue(data.toString(), FestivalBandVO.class);
 				if (value != null && value.getBands() != null && value.getBands().size() > 0) {
-					// System.out.println("festival name:" + value.getName());
 					for (BandRecordVO svo : value.getBands()) {
 						List<String> bandList = new ArrayList<String>();
 						List<String> festivalList = new ArrayList<String>();
@@ -199,5 +205,7 @@ public class MainUtil {
 		}
 		return displayList;
 	}
-
+	public static void main(String[] args){
+		getDisplayList();
+	}
 }
