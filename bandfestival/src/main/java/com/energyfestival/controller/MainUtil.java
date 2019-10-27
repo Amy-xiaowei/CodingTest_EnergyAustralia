@@ -56,7 +56,6 @@ public class MainUtil {
 	 * @return
 	 */
 	public static List<DisplayVO> getDisplayList() {
-		System.out.println("URL--"+URL);
 		List<DisplayVO> displayList = processData(retriveDataFromServer(URL));
 		return displayList;
 	}
@@ -92,15 +91,11 @@ public class MainUtil {
 	 */
 	public static String retriveDataFromServer(String url) {
 		String responseStr = null;
-		System.out.println("======url=="+url);
 		try {
 			//ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
 			ResponseEntity<String> response = restTemplate.exchange(URL, HttpMethod.GET, null, String.class);
-
-			System.out.println("========"+responseStr);
 			if (response != null) {
 				responseStr = response.getBody();
-				System.out.println("========"+responseStr);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
