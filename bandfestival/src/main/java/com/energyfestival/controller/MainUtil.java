@@ -200,7 +200,4 @@ public class MainUtil {
 		}
 		return displayList;
 	}
-	public static void main(String[] args){
-		getDisplayList();
-	}
 }
